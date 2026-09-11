@@ -1,0 +1,81 @@
+# =====================
+# Python
+# =====================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+ENV/
+
+# Python package files
+*.egg-info/
+dist/
+build/
+
+# =====================
+# PyCharm
+# =====================
+.idea/
+*.iml
+
+# =====================
+# Jupyter Notebook
+# =====================
+.ipynb_checkpoints/
+
+# =====================
+# Data (large/sensitive)
+# =====================
+data/raw/
+data/processed/
+
+*.pcap
+*.pcapng
+*.csv
+*.json
+
+# Keep folder structure
+!data/.gitkeep
+
+# =====================
+# ML Models
+# =====================
+models/*.pkl
+models/*.joblib
+models/*.h5
+models/*.pt
+models/*.pth
+
+# =====================
+# Logs
+# =====================
+logs/
+*.log
+
+# =====================
+# Environment Variables
+# =====================
+.env
+.env.*
+
+# =====================
+# OS Files
+# =====================
+.DS_Store
+Thumbs.db
+
+# =====================
+# Streamlit
+# =====================
+.streamlit/
+
+# =====================
+# Temporary files
+# =====================
+*.tmp
+*.temp
+.cache/
