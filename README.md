@@ -20,8 +20,8 @@ python --version
 ### 1. Clone Repository
 
 ```bash
-git clone <repository-url>
-cd <project-folder>
+git clone https://github.com/adharsh0713/sentinel-graph.git
+cd sentinel-graph
 ```
 
 ---
