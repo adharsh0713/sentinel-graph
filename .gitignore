@@ -31,12 +31,17 @@ build/
 # Data (large/sensitive)
 # =====================
 data/raw/
-data/processed/
+data/interim/
+data/features/
+data/states/
+data/sequences/
 
 *.pcap
 *.pcapng
 *.csv
 *.json
+*.parquet
+*.npz
 
 # Keep folder structure
 !data/.gitkeep

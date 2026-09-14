@@ -1,38 +1,10 @@
-# Core data processing
-numpy
 pandas
-scipy
-
-# Visualization
-matplotlib
-plotly
-seaborn
-
-# Network traffic analysis
-scapy
-pyshark
-
-# Machine Learning
+numpy
+pyarrow
 scikit-learn
-xgboost
-lightgbm
-
-# MITRE ATT&CK integration
-mitreattack-python
-
-# Backend API
-fastapi
-uvicorn
-
-# Dashboard
-streamlit
-
-# Database
-sqlalchemy
-psycopg2-binary
-
-# Utilities
-python-dotenv
-pydantic
+matplotlib
+seaborn
+jupyter
+torch
 tqdm
-joblib
+pyyaml
