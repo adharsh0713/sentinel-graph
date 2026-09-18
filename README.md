@@ -289,7 +289,7 @@ data/
 ## 1. Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone [<repository-url>](https://github.com/adharsh0713/sentinel-graph.git)
 
 cd sentinel-graph
 ```
