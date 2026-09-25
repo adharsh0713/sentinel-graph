@@ -1,16 +1,16 @@
 from pathlib import Path
+
 import pandas as pd
 
 
 INPUT_DIR = Path("data/interim")
 OUTPUT_DIR = Path("data/features")
-
 OUTPUT_DIR.mkdir(exist_ok=True)
-
-EPS = 1e-9
 
 
 def create_features(df):
+
+    df = df.copy()
 
     df["total_packets"] = (
         df["fwd_packets"] +
@@ -24,37 +24,32 @@ def create_features(df):
 
     df["avg_packet_size"] = (
         df["total_bytes"] /
-        (df["total_packets"] + EPS)
+        df["total_packets"].replace(0, pd.NA)
     )
 
     df["fwd_ratio"] = (
         df["fwd_packets"] /
-        (df["total_packets"] + EPS)
+        df["total_packets"].replace(0, pd.NA)
     )
 
     df["bwd_ratio"] = (
         df["bwd_packets"] /
-        (df["total_packets"] + EPS)
+        df["total_packets"].replace(0, pd.NA)
     )
 
     df["syn_rate"] = (
         df["syn_count"] /
-        (df["total_packets"] + EPS)
+        df["total_packets"].replace(0, pd.NA)
     )
 
     df["ack_rate"] = (
         df["ack_count"] /
-        (df["total_packets"] + EPS)
+        df["total_packets"].replace(0, pd.NA)
     )
 
     df["rst_rate"] = (
         df["rst_count"] /
-        (df["total_packets"] + EPS)
-    )
-
-    df["packet_frequency"] = (
-        df["total_packets"] /
-        (df["flow_duration"] + EPS)
+        df["total_packets"].replace(0, pd.NA)
     )
 
     return df

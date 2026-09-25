@@ -92,6 +92,13 @@ def clean_file(file):
                 df[col],
                 errors="coerce"
             )
+    for col in NUMERIC_COLUMNS:
+        if col in df.columns:
+            df[col] = df[col].replace(
+                [float("inf"), float("-inf")],
+                pd.NA
+            )
+
 
 
     # missing values
