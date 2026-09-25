@@ -1,38 +1,19 @@
 from pathlib import Path
+
 import pandas as pd
 
 
 INPUT_DIR = Path("data/features")
 OUTPUT_DIR = Path("data/states")
-
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 
 WINDOW = "30s"
 
 
-FEATURES = [
-    "total_packets",
-    "total_bytes",
-
-    "avg_packet_size",
-
-    "byte_rate",
-    "packet_rate",
-
-    "syn_rate",
-    "ack_rate",
-    "rst_rate",
-
-    "flow_duration"
-]
-
-
 def create_states(df):
 
-    df = df.sort_values(
-        "timestamp"
-    )
+    df = df.sort_values("timestamp").copy()
 
     df["is_attack"] = (
         df["label"] != "Benign"
@@ -57,6 +38,26 @@ def create_states(df):
                 ],
 
                 "avg_packet_size": [
+                    "mean",
+                    "max"
+                ],
+
+                "fwd_ratio": [
+                    "mean",
+                    "max"
+                ],
+
+                "bwd_ratio": [
+                    "mean",
+                    "max"
+                ],
+
+                "byte_rate": [
+                    "mean",
+                    "max"
+                ],
+
+                "packet_rate": [
                     "mean",
                     "max"
                 ],
@@ -96,7 +97,6 @@ def create_states(df):
     states = states.dropna()
 
     return states
-
 
 
 for file in INPUT_DIR.glob("*.parquet"):
